@@ -1,0 +1,183 @@
+{
+  "version": 1,
+  "author": "ECU Project",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-st-nucleo-c031c6",
+      "id": "nucleo",
+      "top": 12.1,
+      "left": -23.1
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot_temp",
+      "top": -171,
+      "left": -193,
+      "attrs": {
+        "label": "Temp"
+      }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot_rpm",
+      "top": -171,
+      "left": -22.2,
+      "attrs": {
+        "label": "RPM"
+      }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot_batt",
+      "top": -171,
+      "left": 150.6,
+      "attrs": {
+        "label": "Battery V"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_ign",
+      "top": 150,
+      "left": -180,
+      "attrs": {
+        "label": "Ignition/Fault",
+        "color": "red"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_fan",
+      "top": 160,
+      "left": 40,
+      "attrs": {
+        "label": "Fan PWM",
+        "color": "blue"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "nucleo:GND.4",
+      "pot_temp:GND",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "nucleo:GND.4",
+      "pot_rpm:GND",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "nucleo:GND.4",
+      "pot_batt:GND",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "nucleo:GND.4",
+      "btn_ign:2.l",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "nucleo:GND.4",
+      "led_fan:C",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+
+    [
+      "nucleo:3V3.1",
+      "pot_temp:VCC",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "nucleo:3V3.1",
+      "pot_rpm:VCC",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "nucleo:3V3.1",
+      "pot_batt:VCC",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+
+    [
+      "pot_temp:SIG",
+      "nucleo:PA0",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "pot_rpm:SIG",
+      "nucleo:PA1",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "pot_batt:SIG",
+      "nucleo:PA4",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+
+    [
+      "btn_ign:1.l",
+      "nucleo:D2",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "led_fan:A",
+      "nucleo:D3",
+      "blue",
+      [
+        "v0"
+      ]
+    ],
+
+    [
+      "$serialMonitor:TX",
+      "nucleo:PA3",
+      "",
+      []
+    ],
+    [
+      "$serialMonitor:RX",
+      "nucleo:PA2",
+      "",
+      []
+    ]
+  ],
+  "dependencies": {}
+}
